@@ -1,13 +1,10 @@
 import React from 'react'
-import { Route, Routes } from 'react-router-dom'
-import Conference from './pages/Conference'
+import Conference from './components/Conference'
 
 const App = () => {
   return (
-    <div>
-      <Routes>
-        <Route path='/' element={<Conference />} />
-      </Routes>
+    <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+      <Conference />
     </div>
   )
 }
