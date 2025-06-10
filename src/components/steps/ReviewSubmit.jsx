@@ -7,7 +7,7 @@ export default function ReviewSubmit({ data, prev }) {
   const [error, setError] = useState("");
 
   // Backend API URL
-  const backendUrl = "http://localhost:3300/api/user/register";
+  const backendUrl = "https://thewaybd.onrender.com/api/user/register";
 
   const handleSubmit = async (e) => {
     e.preventDefault();

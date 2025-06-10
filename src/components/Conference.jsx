@@ -36,7 +36,7 @@ const conference = () => {
 
   const CurrentStep = steps[step];
   return (
-    <div className="max-w-lg mx-auto mt-10 p-8 bg-white rounded shadow">
+    <div className="max-w-lg mx-auto mt-10 p-5 bg-white rounded shadow">
       <CurrentStep
         data={formData}
         next={next}
