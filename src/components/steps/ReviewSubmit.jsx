@@ -7,14 +7,14 @@ export default function ReviewSubmit({ data, prev }) {
   const [error, setError] = useState("");
 
   // Backend API URL
-  const backendUrl = "http://localhost:3300/api/user/register"; 
+  const backendUrl = "http://localhost:3300/api/user/register";
 
-  const handleSubmit = async () => {
-    setLoading(true);
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true); // Start loading
     setError("");
     setSuccess("");
     try {
-
       const response = await axios.post(backendUrl, data);
 
       // Handle success response
@@ -27,7 +27,7 @@ export default function ReviewSubmit({ data, prev }) {
       // Handle error response
       setError(err.response?.data?.message || "Something went wrong. Please try again later.");
     } finally {
-      setLoading(false);
+      setLoading(false); // Stop loading
     }
   };
 
@@ -41,7 +41,7 @@ export default function ReviewSubmit({ data, prev }) {
       {success ? (
         <div className="text-green-600 font-bold text-center">{success}</div>
       ) : (
-        <div className="flex justify-between">
+        <div className="flex justify-between items-center">
           <button
             type="button"
             onClick={prev}
@@ -53,9 +53,31 @@ export default function ReviewSubmit({ data, prev }) {
             onClick={handleSubmit}
             disabled={loading}
             className={`px-4 py-2 rounded text-white ${
-              loading ? "bg-blue-400" : "bg-blue-600 hover:bg-blue-700"
-            } transition`}
+              loading ? "bg-blue-400 cursor-not-allowed" : "bg-blue-600 hover:bg-blue-700"
+            } transition flex items-center`}
           >
+            {loading ? (
+              <svg
+                className="animate-spin h-5 w-5 mr-2 text-white"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+              >
+                <circle
+                  className="opacity-25"
+                  cx="12"
+                  cy="12"
+                  r="10"
+                  stroke="currentColor"
+                  strokeWidth="4"
+                ></circle>
+                <path
+                  className="opacity-75"
+                  fill="currentColor"
+                  d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                ></path>
+              </svg>
+            ) : null}
             {loading ? "Submitting..." : "Submit"}
           </button>
         </div>
