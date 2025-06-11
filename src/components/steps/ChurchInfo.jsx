@@ -29,8 +29,10 @@ export default function ChurchInfo({ data, next, prev }) {
         e.preventDefault();
         next(form);
       }}
+      className="w-1/2 mx-auto mt-32 shadow-lg p-10"
+
     >
-      <h2 className="text-xl font-semibold mb-4">Church Information</h2>
+      <h2 className="text-xl font-semibold mb-4 text-gray-800">Church Information</h2>
       <input
         name="parish"
         value={form.parish}
@@ -60,7 +62,7 @@ export default function ChurchInfo({ data, next, prev }) {
       </select>
       <div className="flex justify-between">
         <button type="button" onClick={prev} className="px-4 py-2 bg-gray-300 rounded">Back</button>
-        <button type="submit" className="px-4 py-2 bg-blue-600 text-white rounded">Next</button>
+        <button type="submit" className="px-4 py-2 bg-neutral-800 text-white rounded hover:bg-amber-400">Next</button>
       </div>
     </form>
   );

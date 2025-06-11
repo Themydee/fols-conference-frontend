@@ -53,7 +53,7 @@ export default function ReviewSubmit({ data, prev }) {
             onClick={handleSubmit}
             disabled={loading}
             className={`px-4 py-2 rounded text-white ${
-              loading ? "bg-blue-400 cursor-not-allowed" : "bg-blue-600 hover:bg-blue-700"
+              loading ? "bg-blue-400 cursor-not-allowed" : "bg-gray-800 hover:bg-amber-700"
             } transition flex items-center`}
           >
             {loading ? (
