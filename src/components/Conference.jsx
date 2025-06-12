@@ -1,3 +1,4 @@
+
 import React, {useState} from 'react'
 import PersonalInfo from "./steps/PersonalInfo";
 import ContactInfo from "./steps/ContactInfo";
@@ -27,7 +28,7 @@ const conference = () => {
     designation: "",
   });
 
-   const next = (data) => {
+  const next = (data) => {
     setFormData({ ...formData, ...data });
     setStep((s) => s + 1);
   };
@@ -36,7 +37,7 @@ const conference = () => {
 
   const CurrentStep = steps[step];
   return (
-    <div className="max-w-lg mx-auto mt-10 p-5 bg-white rounded shadow">
+    <div>
       <CurrentStep
         data={formData}
         next={next}
